@@ -26,7 +26,7 @@ class RollbackOnlyTransactionMiddleware implements Middleware
      * @throws Throwable
      * @throws Exception
      */
-    public function execute(object $command, callable $next)
+    public function execute($command, callable $next)
     {
         $this->entityManager->beginTransaction();
 

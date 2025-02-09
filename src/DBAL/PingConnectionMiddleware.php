@@ -25,7 +25,7 @@ final class PingConnectionMiddleware implements Middleware
      *
      * @return mixed
      */
-    public function execute(object $command, callable $next)
+    public function execute($command, callable $next)
     {
         if (! $this->ping($this->connection)) {
             $this->connection->close();

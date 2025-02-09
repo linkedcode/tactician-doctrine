@@ -29,7 +29,7 @@ class TransactionMiddleware implements Middleware
      * @throws Exception
      * @throws Throwable
      */
-    public function execute(object $command, callable $next)
+    public function execute($command, callable $next)
     {
         $this->connection->beginTransaction();
 
