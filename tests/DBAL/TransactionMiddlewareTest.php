@@ -67,7 +67,7 @@ final class TransactionMiddlewareTest extends TestCase
             throw new Error('CommandFails');
         };
 
-        $this->expectErrorMessage('CommandFails');
+        $this->expectExceptionMessage('CommandFails');
         $this->middleware->execute(new stdClass(), $next);
     }
 }

@@ -33,7 +33,7 @@ final class PingConnectionMiddlewareTest extends TestCase
     /**
      * @test
      */
-    public function itShouldReconnectIfConnectionExpires(): void
+    public function testShouldReconnectIfConnectionExpires(): void
     {
         $this->connection->expects(self::once())->method('getDatabasePlatform')->willThrowException(new Exception());
         $this->connection->expects(self::once())->method('close');
@@ -52,7 +52,7 @@ final class PingConnectionMiddlewareTest extends TestCase
     /**
      * @test
      */
-    public function itShouldReconnectIfConnectionRaiseError(): void
+    public function testShouldReconnectIfConnectionRaiseError(): void
     {
         $this->connection->expects(self::once())->method('getDatabasePlatform')->willReturnCallback(static function (): void {
             trigger_error(
@@ -76,7 +76,7 @@ final class PingConnectionMiddlewareTest extends TestCase
     /**
      * @test
      */
-    public function itShouldNotReconnectIfConnectionIsStillAlive(): void
+    public function testShouldNotReconnectIfConnectionIsStillAlive(): void
     {
         $abstractPlatform = $this->createMock(AbstractPlatform::class);
         $abstractPlatform->method('getDummySelectSQL')->willReturn('');
